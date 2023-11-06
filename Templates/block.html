@@ -1,0 +1,80 @@
+{% extends 'navbar3.html'%}
+    {% block content %}
+    <div class="brown--color box-search-content search_active block-bg close__top">
+        <form id="search_mini_form" class="minisearch" action="#">
+            <div class="field__search">
+                <input type="text" placeholder="Search entire store here...">
+                <div class="action">
+                    <a href="#"><i class="zmdi zmdi-search"></i></a>
+                </div>
+            </div>
+        </form>
+        <div class="close__wrap">
+            <span>close</span>
+        </div>
+    </div>
+    
+    <div style="color:blue;" align="center">
+            {% if messages %}
+                {% for msg in messages %}
+                        {{ msg }}
+                {% endfor %}
+            {% endif %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 align="center">BLOCK USER</h3>
+    <br>
+    <br>
+    <table>
+       <tr>
+          <th>
+             Name
+          </th>
+          <th>
+             Email
+          </th>
+          <th>
+             Registration date
+          </th>
+          <th>
+             Order details
+          </th>
+       </tr>
+       {% for i in u_reg %}
+       <tr>
+          <td>
+             {{i.First_name}} {{i.Last_name}}
+          </td>
+          <td>
+             {{i.Email}}
+          </td>
+          <td>
+             {{i.Registration_date}}
+          </td>
+          <td>
+             {{i.order}}
+          </td>
+            <td>
+                    {% if i.User_role != 'user_blocked' %}
+                        Allowed
+                    {% endif %}
+                    {% if i.User_role == 'user_blocked' %}
+                        Blocked
+                    {% endif %}
+          </td>
+          <td>
+             <button type="submit" onclick="location.href='{% url 'blocks' i.id %}'" name='blo'>Block</button>
+          </td>
+          <td>
+             <button type="submit" onclick="location.href='{% url 'allows' i.id %}'" name='all'>Allow</button>
+          </td>
+       </tr>
+       {% endfor %}
+    </table><br><br>
+    <div align="center">
+       <button type="submit" onclick="location.href='{% url 'admin_home1' %}'" name='mybtn2'>Back</button>
+    </div>
+{% endblock %}

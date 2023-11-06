@@ -1,0 +1,64 @@
+{% extends 'navbar.html'%}
+{% block content %}
+    <div class="box-search-content search_active block-bg close__top">
+        <form id="search_mini_form" class="minisearch" action="#">
+            <div class="field__search">
+                <input type="text" placeholder="Search entire store here...">
+                <div class="action">
+                    <a href="#"><i class="zmdi zmdi-search"></i></a>
+                </div>
+            </div>
+        </form>
+        <div class="close__wrap">
+            <span>close</span>
+        </div>
+    </div>
+    <!-- End Search Popup -->
+    <!-- Start breadcrumb area -->
+    <div class="ht__breadcrumb__area bg-image--6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__inner text-center">
+                        <h2 class="breadcrumb-title">My Account</h2>
+                        <nav class="breadcrumb-content">
+                            <a class="breadcrumb_item" href="home">Home</a>
+                            <span class="brd-separator">/</span>
+                            <span class="breadcrumb_item active">My Account</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<form method="post" action="{% url 'register_staff' %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="container" align="center">
+            <p>Please fill in this form to create an account.</p>
+            <br><br>
+            <div style="color:blue;" align="center">
+            {% if messages %}
+                {% for msg in messages %}
+                        {{ msg }}
+                {% endfor %}
+            {% endif %}
+            </div>
+                <input type="text" size="25" placeholder="Enter firstname" name="first_name" required><br><br>
+                <input type="text" size="25" placeholder="Enter lastname" name="last_name" required><br><br>
+                <input type="text" size="25" placeholder="Enter username" name="user_name" required><br><br>
+                <input type="email" size="25" placeholder="Enter email" name="email" required><br><br>
+                <input type="password" size="25" placeholder="Enter password" name="psw" required><br><br>
+                <input type="hidden"  name="staff" value="staff">
+                <label for="photo"><b>Photo</b></label><br><br>
+                <input type="file" size="10" placeholder="Attach your recent photograph" name="photo" required><br><br>
+                <input type="hidden" name="avg_rev" value="0"><br>
+                <input type="hidden" name="tot_rev" value="0">
+            <button type="submit" class="registerbtn">Register</button>
+            <button type="reset" class="registerbtn">Cancel</button>
+    </div>
+</form>
+<br>
+<div align="center">
+   <button type="submit" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+</div>
+{% endblock %}

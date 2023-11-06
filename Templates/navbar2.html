@@ -1,0 +1,371 @@
+{% load static %}
+{% load cart %}
+<!doctype html>
+<html class="js sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"
+    lang="zxx">
+
+
+<!-- Mirrored from htmldemo.net/boighor/boighor/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Dec 2022 19:21:20 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home Two | Books Library eCommerce Store</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../static/favicon.ico">
+    <link rel="apple-touch-icon" href="../static/icon.png">
+
+    <!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/plugins.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- Cusom css -->
+    <link rel="stylesheet" href="../static/custom.css">
+
+    <!-- Modernizer js -->
+    <script src="../static/js/vendor/modernizr-3.5.0.min.js"></script>
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Main wrapper -->
+<div class="wrapper" id="wrapper">
+    <!-- Header -->
+    <header id="wn__header" class="header__area header__absolute sticky__header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-6 col-lg-2">
+                    <div class="logo">
+                        <a href="{% url 'userhome'%}">
+                            <img src="../static/logo/logo.png" alt="logo images">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 d-none d-lg-block">
+                    <nav class="mainmenu__nav">
+                        <ul class="meninmenu d-flex justify-content-start">
+                            <li class="drop with--one--item"><a href="{% url 'userhome'%}">Home</a>
+                            </li>
+                            <li class="drop"><a href="{% url 'sgrid'%}">Shop</a>
+                            </li>
+                            <li class="drop"><a href="{% url 'userblog'%}">Blog</a>
+                            </li>
+                            <li><a href="{% url 'usercontact'%}">Contact</a></li>
+                            <li><a href="{% url 'logout' %}"onclick="return confirm('Are you sure?')">LOGOUT</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6 col-lg-2">
+                    <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
+                            <li class="wishlist"><a href="{% url 'orderview' %}"></a></li>
+                            <li class="shopcart"><a href="{% url 'cart' %}"></a></li>
+                                <!-- Start Shopping Cart
+                                <span class="product_qun">{{prds.cart}}</span></a>
+                                <div class="block-minicart minicart__active">
+                                <div class="minicart-content-wrapper">
+                                    <div class="micart__close">
+                                        <span>close</span>
+                                    </div>
+                                    <div class="items-total d-flex justify-content-between">
+                                        <span> items</span>
+                                        <span>Cart Subtotal</span>
+                                    </div>
+                                    <div class="total_amount text-end">
+                                        <span>$66.00</span>
+                                    </div>
+                                    <div class="mini_action checkout">
+                                        <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                    </div>
+                                    <div class="single__items">
+                                        <div class="miniproduct">
+                                            <div class="item01 d-flex">
+                                                <div class="thumb">
+                                                    <a href="product-details.html"><img
+                                                            src="../static/product/sm-img/1.jpg"
+                                                            alt="product images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6><a href="product-details.html">nothing</a></h6>
+                                                    <span class="price">$30.00</span>
+                                                    <div class="product_price d-flex justify-content-between">
+                                                        <span class="qun">Qty: 01</span>
+                                                        <ul class="d-flex justify-content-end">
+                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item01 d-flex mt--20">
+                                                <div class="thumb">
+                                                    <a href="product-details.html"><img
+                                                            src="../static/product/sm-img/3.jpg"
+                                                            alt="product images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6><a href="product-details.html">Impulse Duffle</a></h6>
+                                                    <span class="price">$40.00</span>
+                                                    <div class="product_price d-flex justify-content-between">
+                                                        <span class="qun">Qty: 03</span>
+                                                        <ul class="d-flex justify-content-end">
+                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item01 d-flex mt--20">
+                                                <div class="thumb">
+                                                    <a href="product-details.html"><img
+                                                            src="../static/product/sm-img/2.jpg"
+                                                            alt="product images"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6><a href="product-details.html">Compete Track Tote</a></h6>
+                                                    <span class="price">$40.00</span>
+                                                    <div class="product_price d-flex justify-content-between">
+                                                        <span class="qun">Qty: 03</span>
+                                                        <ul class="d-flex justify-content-end">
+                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mini_action cart">
+                                        <a class="cart__btn" href="cart.html">View and edit cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            End Shopping Cart -->
+                        <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
+                            <div class="searchbar__content setting__block">
+                                <div class="content-inner">
+                                    <div class="switcher-currency">
+                                        <strong class="label switcher-label">
+                                            <span>Currency</span>
+                                        </strong>
+                                        <div class="switcher-options">
+                                            <div class="switcher-currency-trigger">
+                                                <span class="currency-trigger">USD - US Dollar</span>
+                                                <ul class="switcher-dropdown">
+                                                    <li>GBP - British Pound Sterling</li>
+                                                    <li>EUR - Euro</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="switcher-currency">
+                                        <strong class="label switcher-label">
+                                            <span>Language</span>
+                                        </strong>
+                                        <div class="switcher-options">
+                                            <div class="switcher-currency-trigger">
+                                                <span class="currency-trigger">English01</span>
+                                                <ul class="switcher-dropdown">
+                                                    <li>English02</li>
+                                                    <li>English03</li>
+                                                    <li>English04</li>
+                                                    <li>English05</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="switcher-currency">
+                                        <strong class="label switcher-label">
+                                            <span>Select Store</span>
+                                        </strong>
+                                        <div class="switcher-options">
+                                            <div class="switcher-currency-trigger">
+                                                <span class="currency-trigger">Fashion Store</span>
+                                                <ul class="switcher-dropdown">
+                                                    <li>Furniture</li>
+                                                    <li>Shoes</li>
+                                                    <li>Speaker Store</li>
+                                                    <li>Furniture</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="switcher-currency">
+                                        <strong class="label switcher-label">
+                                            <span>My Account</span>
+                                        </strong>
+                                        <div class="switcher-options">
+                                            <div class="switcher-currency-trigger">
+                                                <div class="setting__menu">
+                                                    <span><a href="#">Compare Product</a></span>
+                                                    <span><a href="#">My Account</a></span>
+                                                    <span><a href="#">My Wishlist</a></span>
+                                                    <span><a href="#">Sign In</a></span>
+                                                    <div class="dropdown">
+                                                        <span><a onclick="myFunction()" class="crtdropbtn">Create An Account</a>
+                                                        <div id="crtDropdown" class="crtdropdown-content">
+                                                            <ul>
+                                                            <li><a href="#">admin register</a></li>
+                                                            <li><a href="register_user">user register</a></li>
+                                                            <li><a href="register_staff">staff register</a></li>
+                                                            </ul>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Start Mobile Menu -->
+            <div class="row d-none">
+                <div class="col-lg-12 d-none">
+                    <nav class="mobilemenu__nav">
+                        <ul class="meninmenu">
+                            <li><a href="{% url 'userhome'%}">Home</a>
+                            </li>
+                            <li><a href="#">Pages</a>
+                                <ul>
+                                    <li><a href="{% url 'about'%}">About Page</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a>
+                                        <ul>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li><a href="portfolio-three-column.html">Portfolio 3 Column</a></li>
+                                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="login.html">My Account</a></li>
+                                    <li><a href="cart.html">Cart Page</a></li>
+                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                    <li><a href="wishlist.html">Wishlist Page</a></li>
+                                    <li><a href="error404.html">404 Page</a></li>
+                                    <li><a href="faq.html">Faq Page</a></li>
+                                    <li><a href="team.html">Team Page</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop-grid.html">Shop</a>
+                                <ul>
+                                    <li><a href="shop-grid.html">Shop Grid</a></li>
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
+                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                                    <li><a href="shop-no-sidebar.html">Shop No sidebar</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'blog'%}">Blog</a>
+                                <ul>
+                                    <li><a href="{% url 'blog'%}">Blog Page</a></li>
+                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                    <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'contact'%}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- End Mobile Menu -->
+            <div class="mobile-menu d-block d-lg-none">
+            </div>
+            <!-- Mobile Menu -->
+        </div>
+    </header>
+
+{% block content %}{% endblock %}
+
+
+    <!-- Footer Area -->
+    <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
+        <div class="footer-static-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer__widget footer__menu">
+                            <div class="ft__logo">
+                                <a href="{% url 'userhome'%}">
+                                    <img src="../static/logo/3.png" alt="logo">
+                                </a>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority
+                                    have suffered duskam alteration variations of passages</p>
+                            </div>
+                            <div class="footer__content">
+                                <ul class="social__net social__net--2 d-flex justify-content-center">
+                                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-google"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+                                </ul>
+                                <ul class="mainmenu d-flex justify-content-center">
+                                    <li><a href="{% url 'userhome'%}">Trending</a></li>
+                                    <li><a href="{% url 'userhome'%}">Best Seller</a></li>
+                                    <li><a href="{% url 'userhome'%}">All Product</a></li>
+                                    <li><a href="{% url 'userhome'%}">Wishlist</a></li>
+                                    <li><a href="{% url 'userhome'%}">Blog</a></li>
+                                    <li><a href="{% url 'userhome'%}">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright__wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="copyright">
+                            <div class="copy__right__inner text-start">
+                                <p>&copy; 2021, Boighor. Made with <i class="fa fa-heart text-danger"></i> by <a
+                                        href="http://hasthemes.com/" target="_blank">HasThemes</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="payment text-end">
+                            <img src="../static/icons/payment.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //Footer Area -->
+
+
+<script src="../static/js/vendor/jquery.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/vendor/bootstrap.min.js"></script>
+<script src="../static/js/plugins.js"></script>
+<script src="../static/js/active.js"></script>
+
+</body>
+
+
+<!-- Mirrored from htmldemo.net/boighor/boighor/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Dec 2022 19:21:54 GMT -->
+</html>

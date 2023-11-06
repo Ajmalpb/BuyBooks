@@ -1,0 +1,26 @@
+{% extends 'navbar4.html' %}
+{% block content %}
+<br><br><br><br><br>
+<!-- product_list.html -->
+<h2 align=center>Product List</h2>
+<br><br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>remove</th>
+  </tr>
+  {% for product in products %}
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.description }}</td>
+      <th align="center"><a href="{% url 'remove_product' product.id %}" onclick="return confirm('Are you sure you want to remove this product?')">X</a></th>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

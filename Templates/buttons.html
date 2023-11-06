@@ -1,0 +1,28 @@
+{% load static%}
+{% block button %}
+<div class="card-footer p-0 mx-5 nu-gutters">
+    {% if product|is_in_cart:request.session.cart%}
+    <div class="row nu-gutters" >
+        <form action="userhome" class="col-2"  method="POST">
+            {% csrf_token %}
+            <input hidden type="text" name='product' value='{{product.name}}'>
+            <input hidden type="text" name='remove' value='True'>
+            <input type="submit" value="-" class="btn btn-block btn-secondary">
+        </form>                                            
+        <div class="text-center col">{{product|cart_qnty:request.session.cart}} in cart</div>
+        <form action="userhome" class="col-2"  method="POST">
+            {% csrf_token %}
+            <input hidden type="text" name='product' value='{{product.name}}'>
+            <input type="submit" value="+" class="btn btn-block btn-secondary">
+        </form>
+    </div>
+    {% else %}
+    <form action="userhome" method="POST">
+        {% csrf_token %}
+        <input hidden type="text" name='product' value='{{product.name}}'
+        <li><input type="submit" class="btn btn-light p-0 border btn-sm" value="add to cart">&nbsp&nbsp<i
+            class="bi bi-shopping-cart-full"></i></a></li> 
+    </form>
+    {% endif %}
+</div>
+{%endblock%}

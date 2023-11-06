@@ -1,0 +1,35 @@
+from django.urls import path
+import read.views
+
+urlpatterns = [
+    path('',read.views.home,name = 'home'),
+    path('about',read.views.about,name = 'about'),
+    path('blog',read.views.blog,name = 'blog'),
+    path('cart',read.views.cart,name = 'cart'),
+    path('contact',read.views.contact,name = 'contact'),
+    path('sgrid',read.views.sgrid,name = 'sgrid'),
+    path('register',read.views.register,name = 'register'),
+    path('register_admin',read.views.register_admin,name = 'register_admin'),
+    path('register_staff',read.views.register_staff,name = 'register_staff'),
+    path('register_user',read.views.register_user,name = 'register_user'),
+    path('login',read.views.login,name = 'login'),
+    path('logout',read.views.logout,name = 'logout'),
+    path('admin_home1',read.views.admin_home1,name = 'admin_home1'),
+    path('userhome',read.views.userhome,name = 'userhome'),
+    path('staffhome',read.views.staffhome,name = 'staffhome'),
+    path('checkout',read.views.checkout,name = 'checkout'),
+    path('orderview',read.views.orderview,name = 'orderview'),    
+    path('block', read.views.block, name='block'),
+    path('blocks/<id>', read.views.blocks, name='blocks'),
+    path('allows/<id>', read.views.allows, name='allows'),
+    path('add_product', read.views.add_product, name='add_product'),
+    path('product_list', read.views.product_list, name='product_list'),
+    path('remove/<int:product_id>/', read.views.remove_product, name='remove_product'),
+    path('orders/', read.views.order_details, name='order_details'),
+    path('order_details/<int:order_id>/', read.views.order_views, name='order_details'),
+    path('change_status/<int:order_id>/', read.views.change_status, name='change_status'),
+    path('user_details', read.views.user_details, name='user_details'),
+    path('userblog', read.views.userblog, name='userblog'),
+    path('usercontact', read.views.usercontact, name='usercontact'),
+
+]

@@ -1,0 +1,31 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+  <h1>Your Cart</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>${{ product.price }}</td>
+          <td>${{ product.quantity * product.price }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total Items: {{ total_items }}</td>
+        <td colspan="2">Total Price: ${{ total_price }}</td>
+      </tr>
+    </tfoot>
+  </table>
+{% endblock %}

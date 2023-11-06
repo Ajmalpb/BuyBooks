@@ -1,0 +1,111 @@
+﻿{% extends 'navbar2.html' %}
+{% block content %}
+{% load cart %}
+    <!-- //Header -->
+    <!-- Start Search Popup -->
+    <div class="box-search-content search_active block-bg close__top">
+        <form id="search_mini_form" class="minisearch" action="#">
+            <div class="field__search">
+                <input type="text" placeholder="Search entire store here...">
+                <div class="action">
+                    <a href="#"><i class="zmdi zmdi-search"></i></a>
+                </div>
+            </div>
+        </form>
+        <div class="close__wrap">
+            <span>close</span>
+        </div>
+    </div>
+    <!-- End Search Popup -->
+    <!-- Start breadcrumb area -->
+    <div class="ht__breadcrumb__area bg-image--3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__inner text-center">
+                        <h2 class="breadcrumb-title">Order Details</h2>
+                        <nav class="breadcrumb-content">
+                            <a class="breadcrumb_item" href="index.html">Home</a>
+                            <span class="brd-separator">/</span>
+                            <span class="breadcrumb_item active">Order details</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End breadcrumb area -->
+    <!-- cart-main-area start -->
+    <div class="cart-main-area section-padding--lg bg--white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ol-lg-12">
+                    <form action="#">
+                        <div class="table-content wnro__table table-responsive">
+                            <table>
+                                <thead>
+                                <tr class="title-top">
+                                    <th class="product-thumbnail">Item.no</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-name">Book</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-quantity">Date</th>
+                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-remove">status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td class="product-thumbnail">{{forloop.counter}}</td>
+                                    <td class="product-name">{{order.product.name}}</td>
+                                    <td class="product-thumbnail"><img
+                                        src="{{order.product.image.url}}" alt="product img"></td>
+                                    <td class="product-price"><span class="amount">{{order.price|sympol}}</span></td>
+                                    <td class="product-quantity">{{order.quantity}}</td>
+                                    <td class="product-quantity">{{order.date}}</td>
+                                    <td class="product-subtotal">{{order.price|multi:order.quantity|sympol}}</td>
+                                    {% if order.status %}
+                                    <td class="product-quantity">Delivery successfull </td>
+                                    {% else %}
+                                    <td class="product-quantity">Delivery pending </td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <!-- <div class="cartbox__btn">
+                        <ul
+                                class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
+                            <li><a href="#">Coupon Code</a></li>
+                            <li><a href="#">Apply Code</a></li>
+                            <li><a href="#">Update Cart</a></li>
+                            <li><a href="{% url 'checkout' %}">Check Out</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="cartbox__total__area">
+                        <div class="cartbox-total d-flex justify-content-between">
+                            <ul class="cart__total__tk">
+                                <li>{{order|total_order_price:orders|sympol}}</li>
+                            </ul>
+                        </div>
+                        <div class="cart__total__amount">
+                            <span>Grand Total</span>
+                            <span>{{order|total_order_price:orders|sympol}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+    <!-- cart-main-area end -->
+    {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'navbar3.html' %}
+{% block content %}
+<br><br><br><br>
+<table>
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>Orders</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.First_name }} {{ user.Last_name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>
+            {% for order in user.order_set.all %}
+              {{ order.product.name }} - {{ order.quantity }}<br>
+            {% empty %}
+              No orders
+            {% endfor %}
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No users found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <center><a class="btn btn-outline-secondary" href="admin_home1">back</a></center>
+{% endblock content %}
